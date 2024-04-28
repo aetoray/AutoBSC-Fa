@@ -28,6 +28,29 @@ This project is based on [AutoBSC](https://github.com/CatMe0w/AutoBSC), but has 
 - DOM-based interactions (ensures stuff, such as displaying your points always works)
 - Logging of events, such as sending cheer, prediction or poll can be done in the feed on the right side of the screen
 
+## Overlay
+The overlay has two sections:
+### Data
+This section displays how many (allegedly*) users are connected, and how many predictions were made for each team.
+
+> \* I don't know if this data is correct, but it is sent in the cheer message from the server
+
+### Config
+Allows you to configure the script using a GUI
+- Autocheer:
+Automatically send cheers (emojis on the bottom corners of the stream) to receive 5 points. Enabled by default
+- Answer polls:
+Automatically respond to "Who was the MVP of this match?" polls to receive 100 points. Enabled by default
+- Answer quiz:
+Automatically provide the correct answer to quizzes, such as "What does Melodie use as a weapon?" to receive 50 points. Enabled by default
+- Collect lootdrop:
+Automatically collect random loot drops to receive 10 points. Enabled by default
+- Autopredict:
+Automatically place predictions to receive 10 points (100 if prediction turns out true). Disabled by default
+- - Autopredict strategy:
+The strategy used for selecting the team for autopredict. Can be Blue (always choose blue), Red (always choose red), Random (randomly select) or Follow majority (pick same as the majority). Default is Follow majority
+- Feed logging:
+Log events (sending cheer, poll, quiz, etc) to the feed on the right side of the screen. Enabled by default
 ## License
 
 MIT License
