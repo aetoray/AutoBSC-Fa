@@ -45,15 +45,16 @@ let debug = false
 // ===================== End AutoBSC Configuration =====================
 
 let feed;
-function log(msg) {
-    if (!feedLoggingEnabled) {
-    return
-    }
-    if (!feed) {
-        feed = document.getElementsByClassName("Feed__content")[0];
-    }
 
-    feed.children[feed.children.length-2].insertAdjacentHTML("afterend", `<div data-v-de33a6f6="" data-v-48743964="">
+function log(msg) {
+  if (!feedLoggingEnabled) {
+    return
+  }
+  if (!feed) {
+    feed = document.getElementsByClassName("Feed__content")[0];
+  }
+
+  feed.children[feed.children.length - 2].insertAdjacentHTML("afterend", `<div data-v-de33a6f6="" data-v-48743964="">
   <div
     data-v-9ed8f490=""
     data-v-de33a6f6=""
@@ -88,9 +89,9 @@ function log(msg) {
 };
 
 function placePrediction(team) {
-    for (let pre of document.getElementsByClassName("MatchPredictionQuestionCard__buttonGroup")) {
-        pre.getElementsByTagName("button")[team].click()
-    }
+  for (let pre of document.getElementsByClassName("MatchPredictionQuestionCard__buttonGroup")) {
+    pre.getElementsByTagName("button")[team].click()
+  }
 }
 
 // The rest of the code is not recommended to modify unless you know what you are doing
@@ -138,9 +139,9 @@ function placePrediction(team) {
 
       this.send = function(data) {
         if (debug) {
-           const parsed = JSON.parse(data);
+          const parsed = JSON.parse(data);
 
-           console.log("[AutoBSC] Sending message:", data, parsed);
+          console.log("[AutoBSC] Sending message:", data, parsed);
         }
         originalSend.call(this, data);
       };
@@ -152,7 +153,7 @@ function placePrediction(team) {
   function parse(data, ws) {
     const msg = JSON.parse(data)
     if (debug) {
-        console.log("[AutoBSC] Received message:", msg, data);
+      console.log("[AutoBSC] Received message:", msg, data);
     }
 
     msg.forEach(event => {
@@ -163,7 +164,7 @@ function placePrediction(team) {
 
       if (messageType === "cheer") {
         if (conn) {
-            conn.textContent = event.payload.connectedClients
+          conn.textContent = event.payload.connectedClients
         }
         if (cheerEnabled && event.payload.typeId !== lastCheerId) {
           log("Sending cheer");
@@ -182,8 +183,12 @@ function placePrediction(team) {
           log("Sending poll");
 
           setTimeout(() => {
-            for (let que of document.getElementsByClassName("MultiChoiceQuestionCard")) {
-              que.getElementsByTagName("button")[0].click()
+            try {
+              for (let que of document.getElementsByClassName("MultiChoiceQuestionCard")) {
+                que.getElementsByTagName("button")[0].click()
+              }
+            } catch (e) {
+              console.error("[AutoBSC]", e)
             }
           }, 3500);
           lastPollId = event.payload.typeId;
@@ -196,11 +201,15 @@ function placePrediction(team) {
 
           setTimeout(() => {
             for (let que of document.getElementsByClassName("BaseCard")) {
-              if (que.getElementsByClassName("Points__correctAnswer").length === 0) {
-                continue
-              }
+              try {
+                if (que.getElementsByClassName("Points__correctAnswer").length === 0) {
+                  continue
+                }
 
-              que.getElementsByClassName("MultiChoiceQuestionCard__button")[event.payload.correctAnswer.alternative].click()
+                que.getElementsByClassName("MultiChoiceQuestionCard__button")[event.payload.correctAnswer.alternative].click()
+              } catch (e) {
+                console.error("[AutoBSC]", e)
+              }
             }
           }, 3500);
           lastQuizId = event.payload.typeId;
@@ -210,10 +219,10 @@ function placePrediction(team) {
       if (messageType === "match_prediction") {
         predictions = event.payload.answers
         if (matchpredblue) {
-            matchpredblue.textContent = predictions["0"]
+          matchpredblue.textContent = predictions["0"]
         }
         if (matchpredred) {
-            matchpredred.textContent = predictions["1"]
+          matchpredred.textContent = predictions["1"]
         }
         if (matchPredictionEnabled && event.payload.typeId !== lastMatchPredictionId) {
           log("Sending match prediction");
@@ -221,23 +230,27 @@ function placePrediction(team) {
           setTimeout(() => {
             switch (matchPredictionStrategy) {
               case "2":
-                  team = 1
-                  break
+                team = 1
+                break
               case "rand":
-                  team = Math.floor(Math.random()*2)
-                  break
+                team = Math.floor(Math.random() * 2)
+                break
               case "maj":
-                  if (predictions["0"] > predictions["1"]) {
-                      team = 0
-                  } else {
-                      team = 1
-                  }
-                  break
+                if (predictions["0"] > predictions["1"]) {
+                  team = 0
+                } else {
+                  team = 1
+                }
+                break
               default:
-                  break
+                break
             }
             log(`Placing prediction for ${team === 0 ? "blue" : "red"}`)
-            placePrediction(team)
+            try {
+              placePrediction(team)
+            } catch (e) {
+              console.error("[AutoBSC]", e)
+            }
           }, 10000);
 
           lastMatchPredictionId = event.payload.typeId
@@ -245,16 +258,16 @@ function placePrediction(team) {
       }
 
       if (messageType === "loot_drop" && dropEnabled) {
-          if (event.payload.typeId !== lastDropId) {
-              log("Collecting loot drop")
+        if (event.payload.typeId !== lastDropId) {
+          log("Collecting loot drop")
 
-              setTimeout(() => {
-                  for (let drop of document.getElementsByClassName("LootDropCard")) {
-                      drop.getElementsByClassName("RectangleButton")[0].click()
-                  }
-                  lastDropId = event.payload.typeId
-              }, 2000)
-          }
+          setTimeout(() => {
+            for (let drop of document.getElementsByClassName("LootDropCard")) {
+              drop.getElementsByClassName("RectangleButton")[0].click()
+            }
+            lastDropId = event.payload.typeId
+          }, 2000)
+        }
       }
     })
   }
@@ -349,7 +362,15 @@ function placePrediction(team) {
     `)
     dragElement(document.getElementById("autobsc-overlay"))
 
-    const elems = {cheer: document.getElementById("autobsc-cheer"), poll: document.getElementById("autobsc-poll"), quiz: document.getElementById("autobsc-quiz"), lootdrop: document.getElementById("autobsc-lootdrop"), predict: document.getElementById("autobsc-predict"), predictstrat: document.getElementById("autobsc-predict-strat"), feedlogging: document.getElementById("autobsc-feedlogging")}
+    const elems = {
+      cheer: document.getElementById("autobsc-cheer"),
+      poll: document.getElementById("autobsc-poll"),
+      quiz: document.getElementById("autobsc-quiz"),
+      lootdrop: document.getElementById("autobsc-lootdrop"),
+      predict: document.getElementById("autobsc-predict"),
+      predictstrat: document.getElementById("autobsc-predict-strat"),
+      feedlogging: document.getElementById("autobsc-feedlogging")
+    }
 
     elems.cheer.checked = cheerEnabled
     elems.poll.checked = pollEnabled
@@ -360,14 +381,28 @@ function placePrediction(team) {
 
     elems.predictstrat.value = matchPredictionStrategy
 
-    elems.cheer.onchange = function(e){cheerEnabled = e.target.checked}
-    elems.poll.onchange = function(e){pollEnabled = e.target.checked}
-    elems.quiz.onchange = function(e){quizEnabled = e.target.checked}
-    elems.predict.onchange = function(e){matchPredictionEnabled = e.target.checked}
-    elems.lootdrop.onchange = function(e){dropEnabled = e.target.checked}
-    elems.feedlogging.onchange = function(e){feedLoggingEnabled = e.target.checked}
+    elems.cheer.onchange = function(e) {
+      cheerEnabled = e.target.checked
+    }
+    elems.poll.onchange = function(e) {
+      pollEnabled = e.target.checked
+    }
+    elems.quiz.onchange = function(e) {
+      quizEnabled = e.target.checked
+    }
+    elems.predict.onchange = function(e) {
+      matchPredictionEnabled = e.target.checked
+    }
+    elems.lootdrop.onchange = function(e) {
+      dropEnabled = e.target.checked
+    }
+    elems.feedlogging.onchange = function(e) {
+      feedLoggingEnabled = e.target.checked
+    }
 
-    elems.predictstrat.onchange = function(e){matchPredictionStrategy = e.target.value}
+    elems.predictstrat.onchange = function(e) {
+      matchPredictionStrategy = e.target.value
+    }
 
     conn = document.getElementById("autobsc-connected")
     matchpredblue = document.getElementById("autobsc-pick-blue")
