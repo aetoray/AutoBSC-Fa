@@ -12,7 +12,7 @@ Tested on April Monthly Finals 2024, but should work on other Championship strea
 
 1. Install [Tampermonkey](https://www.tampermonkey.net/).
 
-2. Install AutoBSC by clicking [here](https://update.greasyfork.org/scripts/491375/AutoBSC.user.js).
+2. Install AutoBSC by clicking [here](https://github.com/LaptopCat/AutoBSC/raw/master/autobsc.user.js).
 
 3. Open the stream page on https://event.supercell.com/brawlstars/
 
