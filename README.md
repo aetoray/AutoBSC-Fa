@@ -1,14 +1,12 @@
-# AutoBSC
-
-[View on Greasy Fork](https://greasyfork.org/scripts/491375-autobsc)
+# AutoBSC++
 
 Want all the Starr Drops, sprays and coins, but don't have the time to watch the stream, or it just doesn't match the timezone where you live? AutoBSC is here to help you!
 
 AutoBSC can automatically completes the events during the stream, including Cheers, Polls (choosing MVP), Quizzes and Match Predictions.
 
-Tested on March Monthly Finals 2024, but should work on other Championship streams as well.
+Tested on April Monthly Finals 2024, but should work on other Championship streams as well.
 
-![AutoBSC](https://raw.githubusercontent.com/CatMe0w/AutoBSC/master/autobsc.jpg)
+![AutoBSC](showcase.png)
 
 ## Quick Start
 
@@ -20,13 +18,14 @@ Tested on March Monthly Finals 2024, but should work on other Championship strea
 
 4. If "AutoBSC loaded" is shown in the event logs, then it's working. Now you can just leave the tab open and let it do the work for you.
 
-## Limitations
+## Differences from AutoBSC
+This project is based on [AutoBSC]((https://github.com/CatMe0w/AutoBSC), but has many differences from it
 
-- Sometimes the point reading won't update and manual refresh is needed. Don't worry, AutoBSC is still working.
-
-- Manually clicking on the polls or quizzes won't work, as AutoBSC will send the answer automatically.
-
-- AutoBSC doesn't have a question database, so it will always choose the first option in the quizzes.
+- AutoBSC++ has an overlay showing data and allowing you to quickly configure the script
+- Quizzes are always answered correctly
+- Many different ways to autopredict: always blue/red, random team or pick same as majority
+- Automatically collect loot drops
+- DOM-based interactions (ensures stuff, such as displaying your points always works)
 
 ## License
 
