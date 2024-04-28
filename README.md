@@ -26,6 +26,7 @@ This project is based on [AutoBSC](https://github.com/CatMe0w/AutoBSC), but has 
 - Many different ways to autopredict: always blue/red, random team or pick same as majority
 - Automatically collect loot drops
 - DOM-based interactions (ensures stuff, such as displaying your points always works)
+- Logging of events, such as sending cheer, prediction or poll can be done in the feed on the right side of the screen
 
 ## License
 
