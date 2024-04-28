@@ -46,7 +46,7 @@ Automatically provide the correct answer to quizzes, such as "What does Melodie 
 - Collect lootdrop:
 Automatically collect random loot drops to receive 10 points. Enabled by default
 - Autopredict:
-Automatically place predictions to receive 10 points (100 if prediction turns out true). Disabled by default
+Automatically place predictions to receive 10 points (125 if prediction turns out true). Disabled by default
 - - Autopredict strategy:
 The strategy used for selecting the team for autopredict. Can be Blue (always choose blue), Red (always choose red), Random (randomly select) or Follow majority (pick same as the majority). Default is Follow majority
 - Feed logging:
