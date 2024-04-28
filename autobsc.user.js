@@ -238,7 +238,7 @@ function placePrediction(team) {
             }
             log(`Placing prediction for ${team === 0 ? "blue" : "red"}`)
             placePrediction(team)
-          }, 3500);
+          }, 10000);
 
           lastMatchPredictionId = event.payload.typeId
         }
