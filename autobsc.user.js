@@ -246,7 +246,6 @@ function log(msg) {
               } catch (e) {
                 console.error("[AutoBSC]", e)
               }
-              a.getElementsByTagName("button")[team].click()
             }
           }, 10000);
 
