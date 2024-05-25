@@ -88,12 +88,6 @@ function log(msg) {
 
 };
 
-function placePrediction(team) {
-  for (let pre of document.getElementsByClassName("MatchPredictionQuestionCard__buttonGroup")) {
-    pre.getElementsByTagName("button")[team].click()
-  }
-}
-
 // The rest of the code is not recommended to modify unless you know what you are doing
 (function() {
   "use strict";
@@ -246,10 +240,13 @@ function placePrediction(team) {
                 break
             }
             log(`Placing prediction for ${team === 0 ? "blue" : "red"}`)
-            try {
-              placePrediction(team)
-            } catch (e) {
-              console.error("[AutoBSC]", e)
+            for (let a of document.getElementsByClassName("MatchPredictionQuestionCard__buttonGroup")) {
+              try {
+                a.getElementsByTagName("button")[team].click()
+              } catch (e) {
+                console.error("[AutoBSC]", e)
+              }
+              a.getElementsByTagName("button")[team].click()
             }
           }, 10000);
 
@@ -263,7 +260,11 @@ function placePrediction(team) {
 
           setTimeout(() => {
             for (let drop of document.getElementsByClassName("LootDropCard")) {
-              drop.getElementsByClassName("RectangleButton")[0].click()
+              try {
+                drop.getElementsByClassName("RectangleButton")[0].click()
+              } catch (e) {
+                console.error("[AutoBSC]", e)
+              }
             }
             lastDropId = event.payload.typeId
           }, 2000)
