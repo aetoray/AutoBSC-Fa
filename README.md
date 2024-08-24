@@ -4,7 +4,7 @@ Want all the Starr Drops, sprays and coins, but don't have the time to watch the
 
 AutoBSC++ can automatically complete the events during the stream, including Cheers, Polls (choosing MVP), Quizzes, Loot Drops and Match Predictions.
 
-Tested on May Monthly Finals 2024, but should work on other Championship streams as well.
+Tested on Last Chance Qualifier (August 2024), but should work on other Championship streams as well.
 
 ![AutoBSC](https://github.com/LaptopCat/AutoBSC/raw/master/showcase.png)
 
@@ -51,6 +51,8 @@ Automatically place predictions to receive 10 points (125 if prediction turns ou
 The strategy used for selecting the team for autopredict. Can be Blue (always choose blue), Red (always choose red), Random (randomly select) or Follow majority (pick same as the majority). Default is Follow majority
 - Feed logging:
 Log events (sending cheer, poll, quiz, etc) to the feed on the right side of the screen. Enabled by default
+- Low Detail Mode:
+Disable cheer graphics to improve performance on low-end hardware. Disabled by default
 ## License
 
 MIT License
