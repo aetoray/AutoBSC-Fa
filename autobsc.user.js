@@ -39,8 +39,11 @@ let dropEnabled = true;
 // Log events (such as sending cheer) to the feed
 let feedLoggingEnabled = true;
 
+// Remove cheer graphics (improves performance? haven't tested but pretty sure it does)
+let lowDetail = false;
+
 // Debug logging of websocket messages to console
-let debug = false
+let debug = false;
 
 // ===================== End AutoBSC Configuration =====================
 
@@ -52,6 +55,7 @@ function log(msg) {
   }
   if (!feed) {
     feed = document.getElementsByClassName("Feed__content")[0];
+    if (!feed) {return}
   }
 
   feed.children[feed.children.length - 2].insertAdjacentHTML("afterend", `<div data-v-de33a6f6="" data-v-48743964="">
@@ -87,6 +91,16 @@ function log(msg) {
 `)
 
 };
+
+function purge(elements) {
+    for (let elem of elements) {
+        try {
+            elem.remove()
+        } catch (e) {
+            console.warn("[AutoBSC] Failed to remove element", elem, e)
+        }
+    }
+}
 
 // The rest of the code is not recommended to modify unless you know what you are doing
 (function() {
@@ -160,6 +174,12 @@ function log(msg) {
         if (conn) {
           conn.textContent = event.payload.connectedClients
         }
+
+        if (lowDetail) {
+            purge(document.getElementsByClassName("Cheer__gradient"))
+            purge(document.getElementsByClassName("Cheer__canvas"))
+        }
+
         if (cheerEnabled && event.payload.typeId !== lastCheerId) {
           log("Sending cheer");
 
@@ -297,7 +317,6 @@ function log(msg) {
       }
     }, 1000);
 
-
     document.body.insertAdjacentHTML("afterbegin", `
 <style>
 #autobsc-overlay > details[open] {
@@ -313,6 +332,11 @@ function log(msg) {
     float: right;
     position: relative;
     top: 0.15rem;
+}
+
+.Video__InteractionBlocker, .VideoCover.VideoCover--hidden {
+    all: unset !important;
+    display: none;
 }
 </style>
 <div id="autobsc-overlay" style="position: absolute; top: 20%; z-index: 99999999; background: antiquewhite">
@@ -353,6 +377,7 @@ function log(msg) {
 </select></div>
 
   <div class="autobsc-config-container">Feed logging <input type="checkbox" id="autobsc-feedlogging"></div>
+  <div class="autobsc-config-container">Low Detail Mode <input type="checkbox" id="autobsc-lowdetail"></div>
 
   <button style="background-color: red; border: none; color: white;" onclick='if (confirm("Are you sure? You will only be able to open the overlay again by reloading the page")) document.getElementById("autobsc-overlay").remove()'>Destroy overlay</button>
 
@@ -369,7 +394,8 @@ function log(msg) {
       lootdrop: document.getElementById("autobsc-lootdrop"),
       predict: document.getElementById("autobsc-predict"),
       predictstrat: document.getElementById("autobsc-predict-strat"),
-      feedlogging: document.getElementById("autobsc-feedlogging")
+      feedlogging: document.getElementById("autobsc-feedlogging"),
+      lowdetail: document.getElementById("autobsc-lowdetail")
     }
 
     elems.cheer.checked = cheerEnabled
@@ -380,6 +406,7 @@ function log(msg) {
     elems.feedlogging.checked = feedLoggingEnabled
 
     elems.predictstrat.value = matchPredictionStrategy
+    elems.lowdetail.value = lowDetail
 
     elems.cheer.onchange = function(e) {
       cheerEnabled = e.target.checked
@@ -402,6 +429,15 @@ function log(msg) {
 
     elems.predictstrat.onchange = function(e) {
       matchPredictionStrategy = e.target.value
+    }
+
+    elems.lowdetail.onchange = function(e) {
+        lowDetail = e.target.checked
+        if (!lowDetail) {
+            return
+        }
+        purge(document.getElementsByClassName("Cheer__gradient"))
+        purge(document.getElementsByClassName("Cheer__canvas"))
     }
 
     conn = document.getElementById("autobsc-connected")
