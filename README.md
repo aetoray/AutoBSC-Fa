@@ -53,6 +53,11 @@ The strategy used for selecting the team for autopredict. Can be Blue (always ch
 Log events (sending cheer, poll, quiz, etc) to the feed on the right side of the screen. Enabled by default
 - Low Detail Mode:
 Disable cheer graphics to improve performance on low-end hardware. Disabled by default
+
+## Known issues
+- Cheers not being sent if no cheer emote selected
+- No slider interaction support
+
 ## License
 
 MIT License
