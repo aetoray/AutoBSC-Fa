@@ -4,11 +4,11 @@
 // @homepageURL  https://github.com/LaptopCat/AutoBSC
 // @supportURL   https://github.com/LaptopCat/AutoBSC/issues
 // @license      MIT
-// @version      0.2.0
+// @version      0.2.1
 // @description  Auto completes Brawl Stars Championship live stream events
 // @author       laptopcat
 // @match        https://event.supercell.com/brawlstars/*
-// @icon         https://event.supercell.com/favicon.ico
+// @icon         https://event.supercell.com/brawlstars/page-icon.ico
 // @grant        none
 // ==/UserScript==
 
@@ -58,27 +58,27 @@ function log(msg) {
     if (!feed) {return}
   }
 
-  feed.children[feed.children.length - 2].insertAdjacentHTML("afterend", `<div data-v-de33a6f6="" data-v-48743964="">
+  feed.children[feed.children.length - 2].insertAdjacentHTML("afterend", `<div data-v-10a27b37="" data-v-48743964="">
   <div
-    data-v-9ed8f490=""
-    data-v-de33a6f6=""
+    data-v-69011ee0=""
+    data-v-10a27b37=""
     class="Container"
     style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px)"
   >
-    <div data-v-7b4ba43f="" data-v-9ed8f490="" class="BaseCard BaseCard--rmedium">
+    <div data-v-7b4ba43f="" data-v-69011ee0="" class="BaseCard BaseCard--rmedium">
       <div
-        data-v-9ed8f490=""
+        data-v-69011ee0=""
         data-v-7b4ba43f=""
         class="ContentCard ContentCard--disabled ContentCard--inactive ContentCard--isFullWidth ContentCard--isCelebration"
       >
-        <div data-v-9ed8f490="" data-v-7b4ba43f="" class="ContentCard__celebration">
-          <div data-v-de33a6f6="" data-v-7b4ba43f="" class="RewardCard">
-          <div data-v-9ed8f490="" data-v-7b4ba43f="" class="ContentCard__celebration__background"></div>
-          <div data-v-9ed8f490="" data-v-7b4ba43f="" class="ContentCard__celebration__bottomContainer"></div>
-            <div data-v-de33a6f6="" class="RewardCard__rewardContainer" data-v-7b4ba43f="">
-              <div data-v-de33a6f6="" class="RewardCard__infoContainer">
-                <div data-v-de33a6f6="" class="RewardCard__textContainer" style="opacity: 1">
-                  <div data-v-de33a6f6="" class="RewardCard__textContainer__title">${msg}</div>
+        <div data-v-69011ee0="" data-v-7b4ba43f="" class="ContentCard__celebration">
+          <div data-v-10a27b37="" data-v-7b4ba43f="" class="RewardCard">
+          <div data-v-69011ee0="" data-v-7b4ba43f="" class="ContentCard__celebration__background"></div>
+          <div data-v-69011ee0="" data-v-7b4ba43f="" class="ContentCard__celebration__bottomContainer"></div>
+            <div data-v-10a27b37="" class="RewardCard__rewardContainer" data-v-7b4ba43f="">
+              <div data-v-10a27b37="" class="RewardCard__infoContainer">
+                <div data-v-10a27b37="" class="RewardCard__textContainer" style="opacity: 1">
+                  <div data-v-10a27b37="" class="RewardCard__textContainer__title">${msg}</div>
                 </div>
               </div>
             </div>
@@ -445,26 +445,26 @@ function purge(elements) {
     matchpredred = document.getElementById("autobsc-pick-red")
   }
 
-  const loadedMessageHtml = `<div data-v-de33a6f6="" data-v-48743964="">
+  const loadedMessageHtml = `<div data-v-10a27b37="" data-v-48743964="">
   <div
-    data-v-9ed8f490=""
-    data-v-de33a6f6=""
+    data-v-69011ee0=""
+    data-v-10a27b37=""
     class="Container Container--extraTopMargin"
     style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px)"
   >
-    <div data-v-7b4ba43f="" data-v-9ed8f490="" class="BaseCard BaseCard--rmedium">
+    <div data-v-7b4ba43f="" data-v-69011ee0="" class="BaseCard BaseCard--rmedium">
       <div
-        data-v-9ed8f490=""
+        data-v-69011ee0=""
         data-v-7b4ba43f=""
         class="ContentCard ContentCard--disabled ContentCard--inactive ContentCard--isFullWidth ContentCard--isCelebration"
       >
-        <div data-v-9ed8f490="" data-v-7b4ba43f="" class="ContentCard__celebration">
-          <div data-v-9ed8f490="" data-v-7b4ba43f="" class="ContentCard__celebration__background"></div>
-          <div data-v-9ed8f490="" data-v-7b4ba43f="" class="ContentCard__celebration__bottomContainer"></div>
-          <div data-v-de33a6f6="" data-v-7b4ba43f="" class="RewardCard">
-            <div data-v-de33a6f6="" class="RewardCard__rewardContainer" data-v-7b4ba43f="">
-              <div data-v-de33a6f6="" class="RewardCard__reward" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px)">
-                <picture data-v-3740ac92="" data-v-de33a6f6="" class="cms-image cms-image--fullWidth cms-image--loaded cms-image--fullWidth"
+        <div data-v-69011ee0="" data-v-7b4ba43f="" class="ContentCard__celebration">
+          <div data-v-69011ee0="" data-v-7b4ba43f="" class="ContentCard__celebration__background"></div>
+          <div data-v-69011ee0="" data-v-7b4ba43f="" class="ContentCard__celebration__bottomContainer"></div>
+          <div data-v-10a27b37="" data-v-7b4ba43f="" class="RewardCard">
+            <div data-v-10a27b37="" class="RewardCard__rewardContainer" data-v-7b4ba43f="">
+              <div data-v-10a27b37="" class="RewardCard__reward" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px)">
+                <picture data-v-3740ac92="" data-v-10a27b37="" class="cms-image cms-image--fullWidth cms-image--loaded cms-image--fullWidth"
                   >
                   <img
                     data-v-3740ac92=""
@@ -472,10 +472,10 @@ function purge(elements) {
                     class="cms-image cms-image--fullWidth cms-image--loaded cms-image--fullWidth"
                 /></picture>
               </div>
-              <div data-v-de33a6f6="" class="RewardCard__infoContainer">
-                <div data-v-de33a6f6="" class="RewardCard__textContainer" style="opacity: 1">
-                  <div data-v-de33a6f6="" class="RewardCard__textContainer__title">AutoBSC++ loaded</div>
-                  <div data-v-de33a6f6="" class="RewardCard__textContainer__subTitle">made by laptopcat (based on AutoBSC by catme0w)</div>
+              <div data-v-10a27b37="" class="RewardCard__infoContainer">
+                <div data-v-10a27b37="" class="RewardCard__textContainer" style="opacity: 1">
+                  <div data-v-10a27b37="" class="RewardCard__textContainer__title">AutoBSC++ loaded</div>
+                  <div data-v-10a27b37="" class="RewardCard__textContainer__subTitle">made by laptopcat (based on AutoBSC by catme0w)</div>
                 </div>
               </div>
             </div>
