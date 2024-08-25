@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name         AutoBSC++
-// @namespace    https://github.com/LaptopCat
-// @homepageURL  https://github.com/LaptopCat/AutoBSC
-// @supportURL   https://github.com/LaptopCat/AutoBSC/issues
+// @name         AutoBSC++Fa
+// @namespace    https://github.com/123SONIC321
+// @homepageURL  https://github.com/123SONIC321/AutoBSC-Fa
+// @supportURL   https://github.com/123SONIC321/AutoBSC-Fa/issues
 // @license      MIT
 // @version      0.2.1
 // @description  Auto completes Brawl Stars Championship live stream events
-// @author       laptopcat
+// @author       123SONIC321
 // @match        https://event.supercell.com/brawlstars/*
 // @icon         https://event.supercell.com/brawlstars/page-icon.ico
 // @grant        none
@@ -26,7 +26,7 @@ let quizEnabled = true;
 
 // Auto send match prediction
 // Note: It's recommended to submit your own prediction before matches start. If the semifinals or grand finals don't follow your previous predictions, you will have chance to submit a new prediction and you can let AutoBSC to do it for you.
-let matchPredictionEnabled = false;
+let matchPredictionEnabled = true;
 
 // Team selection strategy
 // Can be 1 (select first team), 2 (select second team), rand (select random), maj (follow majority)
@@ -181,7 +181,7 @@ function purge(elements) {
         }
 
         if (cheerEnabled && event.payload.typeId !== lastCheerId) {
-          log("Sending cheer");
+          log("تشویق ارسال شد");
 
           setTimeout(() => {
             for (let btn of document.getElementsByClassName("cheer-btn-container__cheer-btn")) {
@@ -194,7 +194,7 @@ function purge(elements) {
 
       if (messageType === "poll" && pollEnabled) {
         if (event.payload.typeId !== lastPollId) {
-          log("Sending poll");
+          log("ارسال نظرسنجی");
 
           setTimeout(() => {
             try {
@@ -211,7 +211,7 @@ function purge(elements) {
 
       if (messageType === "quiz" && quizEnabled) {
         if (event.payload.typeId !== lastQuizId) {
-          log("Sending quiz");
+          log("پاسخگویی به سؤال");
 
           setTimeout(() => {
             for (let que of document.getElementsByClassName("BaseCard")) {
@@ -239,7 +239,7 @@ function purge(elements) {
           matchpredred.textContent = predictions["1"]
         }
         if (matchPredictionEnabled && event.payload.typeId !== lastMatchPredictionId) {
-          log("Sending match prediction");
+          log("ارسال پیشبینی بازی");
           let team = 0
           setTimeout(() => {
             switch (matchPredictionStrategy) {
@@ -259,7 +259,7 @@ function purge(elements) {
               default:
                 break
             }
-            log(`Placing prediction for ${team === 0 ? "blue" : "red"}`)
+            log(`ارسال پیشبینی نتیجۀ بازی برای تیم با رنگ ${team === 0 ? "آبی" : "قرمز"}`)
             for (let a of document.getElementsByClassName("MatchPredictionQuestionCard__buttonGroup")) {
               try {
                 a.getElementsByTagName("button")[team].click()
@@ -275,7 +275,7 @@ function purge(elements) {
 
       if (messageType === "loot_drop" && dropEnabled) {
         if (event.payload.typeId !== lastDropId) {
-          log("Collecting loot drop")
+          log("دریافت لوت دراپ")
 
           setTimeout(() => {
             for (let drop of document.getElementsByClassName("LootDropCard")) {
@@ -295,7 +295,7 @@ function purge(elements) {
   function setupAutoBsc() {
     loaded = true;
 
-    console.log("[AutoBSC] AutoBSC loaded");
+    console.log("[AutoBSC] AutoBSC با موفقیت بارگزاری شد");
 
     const interval = setInterval(() => {
       const div = document.getElementsByClassName("Feed__content")[0];
@@ -312,7 +312,7 @@ function purge(elements) {
 
     setInterval(() => {
       if (reconnectButtonContainer.style.display !== "none") {
-        console.log("[AutoBSC] Reconnecting");
+        console.log("[AutoBSC] درحال اتصال مجدد");
         reconnectButton.click();
       }
     }, 1000);
@@ -338,6 +338,13 @@ function purge(elements) {
     all: unset !important;
     display: none;
 }
+.RewardCard__textContainer__title, .RewardCard__textContainer__subTitle {
+    font-family: "vazirmatn" !important;
+}
+@font-face {
+    src: url("https://github.com/rastikerdar/vazirmatn/raw/master/fonts/ttf/Vazirmatn-Regular.ttf");
+    font-family: "vazirmatn"
+}
 </style>
 <div id="autobsc-overlay" style="position: absolute; top: 20%; z-index: 99999999; background: antiquewhite">
 <details>
@@ -348,38 +355,38 @@ function purge(elements) {
 <div style="display: grid; justify-content: center; margin-bottom: .5rem;">
 <div>
   <div style="margin-bottom: .5rem">
-    <h1>Data</h1>
-    Connected: <span id="autobsc-connected">unknown</span>
+    <h1>داده‌ها</h1>
+    متصل به: <span id="autobsc-connected">unknown</span>
   </div>
 
   <div style="margin-bottom: .5rem;">
-    <h3>Predictions</h3>
-    Blue: <span id="autobsc-pick-blue">unknown</span><br>
-    Red: <span id="autobsc-pick-red">unknown</span>
+    <h3>پیشبینی‌ها</h3>
+    آبی: <span id="autobsc-pick-blue">unknown</span><br>
+    قرمز: <span id="autobsc-pick-red">unknown</span>
   </div>
 
   <h1>Config</h1>
-  <div class="autobsc-config-container">Autocheer <input type="checkbox" id="autobsc-cheer"></div>
+  <div class="autobsc-config-container">تشویق خودکار <input type="checkbox" id="autobsc-cheer"></div>
 
-  <div class="autobsc-config-container">Answer polls <input type="checkbox" id="autobsc-poll"></div>
+  <div class="autobsc-config-container">پاسخگویی به نظرسنجی‌ها <input type="checkbox" id="autobsc-poll"></div>
 
-  <div class="autobsc-config-container">Answer quiz <input type="checkbox" id="autobsc-quiz"></div>
+  <div class="autobsc-config-container">پاسخگویی به سؤالات <input type="checkbox" id="autobsc-quiz"></div>
 
-  <div class="autobsc-config-container">Collect lootdrop <input type="checkbox" id="autobsc-lootdrop"></div>
+  <div class="autobsc-config-container">دریافت لوت دراپ‌ها <input type="checkbox" id="autobsc-lootdrop"></div>
 
-  <div class="autobsc-config-container">Autopredict <input type="checkbox" id="autobsc-predict"></div>
+  <div class="autobsc-config-container">ثبت پیشبینی <input type="checkbox" id="autobsc-predict"></div>
 
-  <div class="autobsc-config-container">Autopredict strategy <select style="width: 3.825rem;" id="autobsc-predict-strat">
-  <option value="1">Blue</option>
-  <option value="2">Red</option>
-  <option value="rand">Random</option>
-  <option value="maj">Follow majority</option>
+  <div class="autobsc-config-container">نحوه‌ی انتخاب پیشبینی <select style="width: 3.825rem;" id="autobsc-predict-strat">
+  <option value="1">فقط تیم با رنگ آبی</option>
+  <option value="2">فقط تیم با رنگ قرمز</option>
+  <option value="rand">شانسی</option>
+  <option value="maj">هر تیمی که بیشتر رای داشت</option>
 </select></div>
 
-  <div class="autobsc-config-container">Feed logging <input type="checkbox" id="autobsc-feedlogging"></div>
-  <div class="autobsc-config-container">Low Detail Mode <input type="checkbox" id="autobsc-lowdetail"></div>
+  <div class="autobsc-config-container">نمایش اتفاقات <input type="checkbox" id="autobsc-feedlogging"></div>
+  <div class="autobsc-config-container">حالت جزئیات کم <input type="checkbox" id="autobsc-lowdetail"></div>
 
-  <button style="background-color: red; border: none; color: white;" onclick='if (confirm("Are you sure? You will only be able to open the overlay again by reloading the page")) document.getElementById("autobsc-overlay").remove()'>Destroy overlay</button>
+  <button style="background-color: red; border: none; color: white;" onclick='if (confirm("آیا مطمئن هستید؟ شما فقط با رفرش کردن صفحه می‌توانید به این منو دوباره دسترسی داشته باشید")) document.getElementById("autobsc-overlay").remove()'>مخفی کردن منو</button>
 
 </div>
 </div>
@@ -468,14 +475,15 @@ function purge(elements) {
                   >
                   <img
                     data-v-3740ac92=""
-                    src="https://event.supercell.com/brawlstars/assets/rewards/images/emoji_starr.svg"
+                    src="https://event.supercell.com/brawlstars/img/ico_correct.d0dacc2.svg"
                     class="cms-image cms-image--fullWidth cms-image--loaded cms-image--fullWidth"
                 /></picture>
               </div>
               <div data-v-10a27b37="" class="RewardCard__infoContainer">
                 <div data-v-10a27b37="" class="RewardCard__textContainer" style="opacity: 1">
-                  <div data-v-10a27b37="" class="RewardCard__textContainer__title">AutoBSC++ loaded</div>
-                  <div data-v-10a27b37="" class="RewardCard__textContainer__subTitle">made by laptopcat (based on AutoBSC by catme0w)</div>
+                  <div data-v-10a27b37="" class="RewardCard__textContainer__title">AutoBSC++ بارگزاری شد</div>
+                  <div data-v-10a27b37="" class="RewardCard__textContainer__subTitle">laptopcat ساخته شده توسط</div>
+                  <div data-v-10a27b37="" class="RewardCard__textContainer__subTitle">translated by 123SONIC321</div>
                 </div>
               </div>
             </div>
