@@ -1,62 +1,61 @@
-# AutoBSC++
+# AutoBSC++ فارسی
+### **ترجمه شده توسط 123SONIC321**
 
-Want all the Starr Drops, sprays and coins, but don't have the time to watch the stream, or it just doesn't match the timezone where you live? AutoBSC++ is here to help you!
+میخای همۀ استارر دراپ‌ها، اسپری‌ها و سکه‌ها رو بگیری اما زمان یا حوصلۀ تماشای استریم رو نداری یا استریم در منطقه زمانیت مناسب نیست؟ AutoBSC++ به کمک شما اومده!
 
-AutoBSC++ can automatically complete the events during the stream, including Cheers, Polls (choosing MVP), Quizzes, Loot Drops and Match Predictions.
+این ابزار می‌تونه به طور خودکار رویدادهای حین استریم را تکمیل بکنه؛ از جمله تشویق‌ها، نظرسنجی‌ها (انتخاب MVP)، کوییزها، لوت‌دراپ‌ها و پیش‌بینی بازی‌ها.
 
-Tested on Last Chance Qualifier (August 2024), but should work on other Championship streams as well.
+این ابزار بر روی Last Chance Qualifier (آگوست 2024) آزمایش شده، اما باید بر روی بقیۀ استریم‌های مسابقات قهرمانی پیشِ‌رو هم کار کنه.
 
 ![AutoBSC](https://github.com/LaptopCat/AutoBSC/raw/master/showcase.png)
 
-## Quick Start
+## آموزش نصب سریع
+### اگه توی تلفن همراه قصد نصب دارید قبل از هرکاری مطمئن بشید که مرورگرتون از افزونه (اکستنشن) پشتیبانی می‌کنه یا خیر (مرورگر های فایرفاکس، کیوی و ادج از افزونه پشتیبانی می‌کنن)
 
-1. Install [Tampermonkey](https://www.tampermonkey.net/).
+قدم اول: افزونۀ [Tampermonkey](https://www.tampermonkey.net/) رو نصب کنید.
 
-2. Install AutoBSC by clicking [here](https://github.com/LaptopCat/AutoBSC/raw/master/autobsc.user.js).
+قدم دوم: AutoBSC رو از [اینجا](https://github.com/123SONIC321/AutoBSC-Fa/raw/master/autobsc.user.js) نصب کنید.
 
-3. Open the stream page on https://event.supercell.com/brawlstars/
+قدم سوم: حالا موقع برگزاری مسابقات، استریم رو باز کنید. https://event.supercell.com/brawlstars
 
-4. If "AutoBSC++ loaded" is shown in the event logs, then it's working. Now you can just leave the tab open and let it do the work for you.
+اگه توی قسمتِ رویداد‌ها (سمت راست) براتون ✅ ارسال شد یعنی مراحل رو به درستی انجام دادید.
 
-## Differences from AutoBSC
-This project is based on [AutoBSC](https://github.com/CatMe0w/AutoBSC), but has many differences from it
+## منوی معلق
+منوی معلق شامل دو بخش است:
+### داده‌ها
+این بخش نشان می‌دهد که (ظاهراً) چند کاربر متصل هستند و برای هر تیم چند پیش‌بینی انجام شده است.
+> \* مشخص نیست که آیا این داده‌ها درست هستند یا نه، اما در پیام تشویق از سرور ارسال می‌شوند.
 
-- AutoBSC++ has an overlay showing data and allowing you to quickly configure the script
-- Quizzes are always answered correctly
-- Many different ways to autopredict: always blue/red, random team or pick same as majority
-- Automatically collect loot drops
-- DOM-based interactions (ensures stuff, such as displaying your points always works)
-- Logging of events, such as sending cheer, prediction or poll can be done in the feed on the right side of the screen
+### کانفیگ (پیکربندی)
+به شما امکان می‌دهد با استفاده از یک رابط کاربری گرافیکی، اسکریپت را تنظیم کنید.
 
-## Overlay
-The overlay has two sections:
-### Data
-This section displays how many (allegedly*) users are connected, and how many predictions were made for each team.
+**تشویق خودکار:**
+به طور خودکار تشویق‌ها (اموجی‌ها در گوشه‌های پایین استریم) را ارسال می‌کند تا 5 امتیاز دریافت کنید. (به طور پیش‌فرض فعال است.)
 
-> \* I don't know if this data is correct, but it is sent in the cheer message from the server
+**پاسخگویی به نظرسنجی‌ها:**
+به طور خودکار به نظرسنجی‌های "?Who was the MVP of this match" پاسخ می‌دهد تا 100 امتیاز دریافت کنید. (به طور پیش‌فرض فعال است.)
 
-### Config
-Allows you to configure the script using a GUI
-- Autocheer:
-Automatically send cheers (emojis on the bottom corners of the stream) to receive 5 points. Enabled by default
-- Answer polls:
-Automatically respond to "Who was the MVP of this match?" polls to receive 100 points. Enabled by default
-- Answer quiz:
-Automatically provide the correct answer to quizzes, such as "What does Melodie use as a weapon?" to receive 50 points. Enabled by default
-- Collect lootdrop:
-Automatically collect random loot drops to receive 10 points. Enabled by default
-- Autopredict:
-Automatically place predictions to receive 10 points (125 if prediction turns out true). Disabled by default
-- - Autopredict strategy:
-The strategy used for selecting the team for autopredict. Can be Blue (always choose blue), Red (always choose red), Random (randomly select) or Follow majority (pick same as the majority). Default is Follow majority
-- Feed logging:
-Log events (sending cheer, poll, quiz, etc) to the feed on the right side of the screen. Enabled by default
-- Low Detail Mode:
-Disable cheer graphics to improve performance on low-end hardware. Disabled by default
+**پاسخگویی به سؤالات:**
+به طور خودکار پاسخ صحیح را به سؤالات، مانند "?What does Melodie use as a weapon" می‌دهد تا 50 امتیاز دریافت کنید. (به طور پیش‌فرض فعال است.)
 
-## Known issues
-- Cheers not being sent if no cheer emote selected
-- No slider interaction support
+**دریافت لوت‌دراپ‌ها:**
+به طور خودکار لوت‌دراپ‌های تصادفی را جمع‌آوری می‌کند تا 10 امتیاز دریافت کنید. (به طور پیش‌فرض فعال است.)
+
+**ثبت پیش‌بینی:**
+به طور خودکار پیش‌بینی‌ها را انجام می‌دهد تا 10 امتیاز (125 اگر پیش‌بینی درست باشد) دریافت کنید. (به طور پیش‌فرض فعال است.)
+
+- **نحوه‌ی انتخاب پیش‌بینی:**
+استراتژی استفاده شده برای انتخاب تیم برای پیش‌بینی خودکار. می‌تواند `فقط تیم با رنگ آبی`، `فقط تیم با رنگ قرمز`، `تصادفی` یا `هر تیمی که رای بیشتری داشت` (رای به تیم دارای اکثریت آراء) باشد. (پیش‌فرض پیروی از اکثریت است.)
+
+**نمایش رویدادها:**
+نتیجۀ رویدادها (ارسال تشویق، نظرسنجی، سؤالات و غیره) را در فید سمت راست صفحه نمایش می‌دهد. (به طور پیش‌فرض فعال است.)
+
+**حالت جزئیاتِ کم:**
+انیمیشن تشویق را غیرفعال می‌کند تا عملکرد سایت در دستگاه‌های ضعیف بهبود یابد؛ *این گزینۀ برای افرادی که وبسایت براشون کند اجرا میشه توصیه می‌کنم.* (به طور پیش‌فرض غیرفعال است.)
+
+## مشکلات شناخته شده
+- اگر هیچ اموجی تشویقی انتخاب نشده باشد، تشویق‌ها ارسال نمی‌شوند.
+- از تعامل با اسلایدر پشتیبانی نمی‌شود.
 
 ## License
 
