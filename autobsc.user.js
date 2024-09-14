@@ -4,7 +4,7 @@
 // @homepageURL  https://github.com/123SONIC321/AutoBSC-Fa
 // @supportURL   https://github.com/123SONIC321/AutoBSC-Fa/issues
 // @license      MIT
-// @version      0.2.1
+// @version      0.1.0
 // @description  Auto completes Brawl Stars Championship live stream events
 // @author       123SONIC321
 // @match        https://event.supercell.com/brawlstars/*
@@ -365,7 +365,7 @@ function purge(elements) {
     قرمز: <span id="autobsc-pick-red">unknown</span>
   </div>
 
-  <h1>Config</h1>
+  <h1>پیکربندی</h1>
   <div class="autobsc-config-container">تشویق خودکار <input type="checkbox" id="autobsc-cheer"></div>
 
   <div class="autobsc-config-container">پاسخگویی به نظرسنجی‌ها <input type="checkbox" id="autobsc-poll"></div>
@@ -374,16 +374,16 @@ function purge(elements) {
 
   <div class="autobsc-config-container">دریافت لوت دراپ‌ها <input type="checkbox" id="autobsc-lootdrop"></div>
 
-  <div class="autobsc-config-container">ثبت پیشبینی <input type="checkbox" id="autobsc-predict"></div>
+  <div class="autobsc-config-container">ثبت پیش‌بینی <input type="checkbox" id="autobsc-predict"></div>
 
-  <div class="autobsc-config-container">نحوه‌ی انتخاب پیشبینی <select style="width: 3.825rem;" id="autobsc-predict-strat">
+  <div class="autobsc-config-container">نحوه‌ی انتخاب پیش‌بینی <select style="width: 3.825rem;" id="autobsc-predict-strat">
   <option value="1">فقط تیم با رنگ آبی</option>
   <option value="2">فقط تیم با رنگ قرمز</option>
-  <option value="rand">شانسی</option>
+  <option value="rand">تصادفی</option>
   <option value="maj">هر تیمی که بیشتر رای داشت</option>
 </select></div>
 
-  <div class="autobsc-config-container">نمایش اتفاقات <input type="checkbox" id="autobsc-feedlogging"></div>
+  <div class="autobsc-config-container">نمایش رویداد‌ها <input type="checkbox" id="autobsc-feedlogging"></div>
   <div class="autobsc-config-container">حالت جزئیات کم <input type="checkbox" id="autobsc-lowdetail"></div>
 
   <button style="background-color: red; border: none; color: white;" onclick='if (confirm("آیا مطمئن هستید؟ شما فقط با رفرش کردن صفحه می‌توانید به این منو دوباره دسترسی داشته باشید")) document.getElementById("autobsc-overlay").remove()'>مخفی کردن منو</button>
