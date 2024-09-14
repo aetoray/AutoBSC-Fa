@@ -4,7 +4,7 @@
 // @homepageURL  https://github.com/123SONIC321/AutoBSC-Fa
 // @supportURL   https://github.com/123SONIC321/AutoBSC-Fa/issues
 // @license      MIT
-// @version      0.1.0
+// @version      1.0.0
 // @description  Auto completes Brawl Stars Championship live stream events
 // @author       123SONIC321
 // @match        https://event.supercell.com/brawlstars/*
@@ -380,7 +380,7 @@ function purge(elements) {
   <option value="1">فقط تیم با رنگ آبی</option>
   <option value="2">فقط تیم با رنگ قرمز</option>
   <option value="rand">تصادفی</option>
-  <option value="maj">هر تیمی که بیشتر رای داشت</option>
+  <option value="maj">هر تیمی که رأی بیشتری داشت</option>
 </select></div>
 
   <div class="autobsc-config-container">نمایش رویداد‌ها <input type="checkbox" id="autobsc-feedlogging"></div>
