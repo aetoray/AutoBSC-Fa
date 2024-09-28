@@ -239,7 +239,7 @@ function purge(elements) {
           matchpredred.textContent = predictions["1"]
         }
         if (matchPredictionEnabled && event.payload.typeId !== lastMatchPredictionId) {
-          log("ارسال پیشبینی بازی");
+          log("ارسال پیش‌بینی بازی");
           let team = 0
           setTimeout(() => {
             switch (matchPredictionStrategy) {
@@ -259,7 +259,7 @@ function purge(elements) {
               default:
                 break
             }
-            log(`ارسال پیشبینی نتیجۀ بازی برای تیم با رنگ ${team === 0 ? "آبی" : "قرمز"}`)
+            log(`ارسال پیش‌بینی نتیجۀ بازی برای تیم با رنگ ${team === 0 ? "آبی" : "قرمز"}`)
             for (let a of document.getElementsByClassName("MatchPredictionQuestionCard__buttonGroup")) {
               try {
                 a.getElementsByTagName("button")[team].click()
@@ -360,7 +360,7 @@ function purge(elements) {
   </div>
 
   <div style="margin-bottom: .5rem;">
-    <h3>پیشبینی‌ها</h3>
+    <h3>پیش‌بینی‌ها</h3>
     آبی: <span id="autobsc-pick-blue">unknown</span><br>
     قرمز: <span id="autobsc-pick-red">unknown</span>
   </div>
