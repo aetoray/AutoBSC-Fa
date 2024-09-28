@@ -1,4 +1,3 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
 name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
@@ -49,3 +48,14 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+# Additional steps to customize the font
+      - name: Download Vazir font
+        run: wget https://github.com/FarsiWeb/Vazir/releases/download/v0.1.0/Vazir-Regular.ttf -O Vazir-Regular.ttf
+      - name: Install Vazir font
+        run: sudo apt install fonts-freefont-ttf
+        shell: bash
+      - name: Modify Jekyll configuration
+        run: |
+          echo "font-family: Vazir, sans-serif;" >> _sass/custom.scss
+          jekyll build
