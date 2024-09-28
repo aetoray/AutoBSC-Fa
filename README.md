@@ -5,12 +5,15 @@
 
 این ابزار می‌تونه به طور خودکار رویدادهای حین استریم را تکمیل بکنه؛ از جمله تشویق‌ها، نظرسنجی‌ها (انتخاب MVP)، کوییزها، لوت‌دراپ‌ها و پیش‌بینی بازی‌ها.
 
-این ابزار بر روی Upper Finals (سپتامبر 2024) آزمایش شده، اما باید بر روی بقیۀ استریم‌های مسابقات قهرمانی پیشِ‌رو هم کار کنه.
+این ابزار بر روی 5eptember 5pectacle (سپتامبر 2024) آزمایش شده، اما باید بر روی بقیۀ استریم‌های مسابقات قهرمانی پیشِ‌رو هم کار کنه.
 
 ![AutoBSC](https://github.com/123SONIC321/AutoBSC-Fa/raw/master/showcase.png)
 
+## توجه:
+### اگه توی تلفن همراه قصد نصب دارید قبل از هرکاری مطمئن بشید که مرورگرتون از افزونه (اکستنشن) پشتیبانی می‌کنه یا خیر (مرورگرهای [فایرفاکس](https://www.mozilla.org/en-US/firefox/browsers/mobile/android/)، [مایسز](https://www.mises.site/download)، [ادج](https://www.microsoft.com/fa-ir/edge/download) و [کیوی](https://kiwibrowser.com/)* از افزونه پشتیبانی می‌کنن)
+#### *در مرورگر [کیوی](https://kiwibrowser.com/)، نیاز است [Tampermonkey Legacy (MV2)](https://chromewebstore.google.com/detail/lcmhijbkigalmkeommnijlpobloojgfn) را به‌جای [نسخۀ اصلی](https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo) نصب کنید.
+
 ## آموزش نصب سریع
-### اگه توی تلفن همراه قصد نصب دارید قبل از هرکاری مطمئن بشید که مرورگرتون از افزونه (اکستنشن) پشتیبانی می‌کنه یا خیر (مرورگرهای [فایرفاکس](https://www.mozilla.org/en-US/firefox/browsers/mobile/android/)، [مایسز](https://www.mises.site/download)، [ادج](https://www.microsoft.com/fa-ir/edge/download) و [کیوی](https://kiwibrowser.com/)(پیشنهاد نمی‌شه) از افزونه پشتیبانی می‌کنن)
 
 قدم اول: افزونۀ [Tampermonkey](https://www.tampermonkey.net/) رو نصب کنید.
 
@@ -18,7 +21,7 @@
 
 قدم سوم: حالا موقع برگزاری مسابقات، استریم رو باز کنید. https://event.supercell.com/brawlstars
 
-اگه توی قسمتِ رویداد‌ها (سمت راست) براتون ✅ ارسال شد یعنی مراحل رو به درستی انجام دادید.
+اگه توی قسمتِ رویداد‌ها (مثل تصویرِ بالا) براتون ✅ ارسال شد یعنی مراحل رو به درستی انجام دادید.
 
 ## منوی معلق
 منوی معلق شامل دو بخش است:
