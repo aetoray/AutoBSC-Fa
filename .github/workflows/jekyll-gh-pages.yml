@@ -51,11 +51,11 @@ jobs:
 
 # Additional steps to customize the font
       - name: Download Vazir font
-        run: wget https://github.com/FarsiWeb/Vazir/releases/download/v0.1.0/Vazir-Regular.ttf -O Vazir-Regular.ttf
+        run: wget https://github.com/rastikerdar/vazirmatn/raw/refs/heads/master/fonts/ttf/Vazirmatn-Regular.ttf -O Vazirmatn-Regular.ttf
       - name: Install Vazir font
         run: sudo apt install fonts-freefont-ttf
         shell: bash
       - name: Modify Jekyll configuration
         run: |
-          echo "font-family: Vazir, sans-serif;" >> _sass/custom.scss
+          echo "font-family: Vazirmatn, sans-serif;" >> _sass/custom.scss
           jekyll build
