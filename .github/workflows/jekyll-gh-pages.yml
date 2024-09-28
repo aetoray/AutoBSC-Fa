@@ -49,6 +49,11 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      # Create and modify custom.scss file
+      - name: Create and modify custom.scss
+        run: |
+          echo "font-family: Vazirmatn, sans-serif;" > _sass/custom.scss
+
 # Additional steps to customize the font
       - name: Download Vazir font
         run: wget https://github.com/rastikerdar/vazirmatn/raw/refs/heads/master/fonts/ttf/Vazirmatn-Regular.ttf -O Vazirmatn-Regular.ttf
@@ -59,10 +64,5 @@ jobs:
         run: |
           echo "font-family: Vazirmatn, sans-serif;" >> _sass/custom.scss
           jekyll build
-
-      # Create and modify custom.scss file
-      - name: Create and modify custom.scss
-        run: |
-          echo "font-family: Vazirmatn, sans-serif;" > _sass/custom.scss
 
           
