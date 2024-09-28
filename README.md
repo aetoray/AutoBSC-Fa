@@ -5,12 +5,12 @@
 
 این ابزار می‌تونه به طور خودکار رویدادهای حین استریم را تکمیل بکنه؛ از جمله تشویق‌ها، نظرسنجی‌ها (انتخاب MVP)، کوییزها، لوت‌دراپ‌ها و پیش‌بینی بازی‌ها.
 
-این ابزار بر روی Last Chance Qualifier (آگوست 2024) آزمایش شده، اما باید بر روی بقیۀ استریم‌های مسابقات قهرمانی پیشِ‌رو هم کار کنه.
+این ابزار بر روی Upper Finals (سپتامبر 2024) آزمایش شده، اما باید بر روی بقیۀ استریم‌های مسابقات قهرمانی پیشِ‌رو هم کار کنه.
 
-![AutoBSC](https://github.com/LaptopCat/AutoBSC/raw/master/showcase.png)
+![AutoBSC](https://github.com/123SONIC321/AutoBSC-Fa/raw/master/showcase.png)
 
 ## آموزش نصب سریع
-### اگه توی تلفن همراه قصد نصب دارید قبل از هرکاری مطمئن بشید که مرورگرتون از افزونه (اکستنشن) پشتیبانی می‌کنه یا خیر (مرورگرهای [فایرفاکس](https://www.mozilla.org/en-US/firefox/browsers/mobile/android/)، [کیوی](https://kiwibrowser.com/) و [ادج](https://www.microsoft.com/fa-ir/edge/download) از افزونه پشتیبانی می‌کنن)
+### اگه توی تلفن همراه قصد نصب دارید قبل از هرکاری مطمئن بشید که مرورگرتون از افزونه (اکستنشن) پشتیبانی می‌کنه یا خیر (مرورگرهای [فایرفاکس](https://www.mozilla.org/en-US/firefox/browsers/mobile/android/)، [مایسز](https://www.mises.site/download)، [ادج](https://www.microsoft.com/fa-ir/edge/download) و [کیوی](https://kiwibrowser.com/)(پیشنهاد نمی‌شه) از افزونه پشتیبانی می‌کنن)
 
 قدم اول: افزونۀ [Tampermonkey](https://www.tampermonkey.net/) رو نصب کنید.
 
@@ -33,7 +33,7 @@
 به طور خودکار تشویق‌ها (اموجی‌ها در گوشه‌های پایین استریم) را ارسال می‌کند تا 5 امتیاز دریافت کنید. (به طور پیش‌فرض فعال است.)
 
 **پاسخگویی به نظرسنجی‌ها:**
-به طور خودکار به نظرسنجی‌های "?Who was the MVP of this match" پاسخ می‌دهد تا 100 امتیاز دریافت کنید. (به طور پیش‌فرض فعال است.)
+به طور خودکار به نظرسنجی‌ها مانند "?Who was the MVP of this match" پاسخ می‌دهد تا 100 امتیاز دریافت کنید. (به طور پیش‌فرض فعال است.)
 
 **پاسخگویی به سؤالات:**
 به طور خودکار پاسخ صحیح را به سؤالات، مانند "?What does Melodie use as a weapon" می‌دهد تا 50 امتیاز دریافت کنید. (به طور پیش‌فرض فعال است.)
@@ -64,7 +64,7 @@
 
 ## Special Thanks!
 This userscript was originally created by [CatMe0w](https://github.com/CatMe0w/AutoBSC) and later modified and improved by [LaptopCat](https://github.com/LaptopCat/AutoBSC). It was then translated into Persian by [123SONIC321](https://github.com/123SONIC321).
-Many thanks to [LaptopCat](https://github.com/LaptopCat/AutoBSC).
+Many thanks to [LaptopCat](https://github.com/LaptopCat).
 
 ## License
 
