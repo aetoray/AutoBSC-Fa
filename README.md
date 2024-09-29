@@ -1,4 +1,6 @@
 # AutoBSC++ فارسی
+<div dir=rtl>
+
 ### **ترجمه شده توسط 123SONIC321**
 
 میخای همۀ جوایز سایت چمپیونشیپ رو بگیری اما زمان یا حوصلۀ تماشای استریم رو نداری یا استریم در منطقه زمانیت مناسب نیست؟ ++AutoBSC به کمک شما اومده!
@@ -64,6 +66,8 @@
 ## مشکلات شناخته شده
 - اگر هیچ اموجی تشویقی انتخاب نشده باشد، تشویق‌ها ارسال نمی‌شوند.
 - از تعامل با اسلایدر پشتیبانی نمی‌شود.
+
+</div>
 
 ## Special Thanks!
 This userscript was originally created by [CatMe0w](https://github.com/CatMe0w/AutoBSC) and later modified and improved by [LaptopCat](https://github.com/LaptopCat/AutoBSC). It was then translated into Persian by [123SONIC321](https://github.com/123SONIC321).
