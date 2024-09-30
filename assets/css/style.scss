@@ -1,10 +1,7 @@
 ---
 ---
 
-@font-face {
-	font-family: "Vazir";
-	src: url("../assets/fonts/Vazir.ttf");
-} 
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
 
 @import "{{ site.theme }}";
 .markdown-body {
