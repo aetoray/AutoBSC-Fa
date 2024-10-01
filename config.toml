@@ -1,7 +1,5 @@
-[languages.fa]
 title = "AutoBSC-Fa"
-languageName = "Persian"
-languageCode = "fa"
+description = "میخوای همۀ جوایز سایت چمپیونشیپ رو بگیری اما زمان یا حوصلۀ تماشای استریم رو نداری یا استریم در منطقه زمانیت مناسب نیست؟ ++AutoBSC به کمک شما اومده!"
 
 [markdown]
 render_emoji = true
